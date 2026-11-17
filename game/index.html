@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Starfall Defense — Offline Tower Defense</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <header>
+    <div class="logo">🛡️ STARFALL DEFENSE</div>
+    <div class="tagline">Hold the serpentine road for 15 waves. No network needed — ever.</div>
+  </header>
+
+  <main>
+    <section class="board-wrap">
+      <canvas id="game" width="960" height="600" aria-label="Game board"></canvas>
+      <div id="overlay">
+        <div class="overlay-card">
+          <h1 id="overlayTitle">STARFALL DEFENSE</h1>
+          <p id="overlayText">Alien crawlers are marching down the road to your base.<br>
+          Build towers on the grass, stop every wave, and survive Wave 15 — the boss wave.</p>
+          <div class="overlay-how">
+            <strong>How to play</strong>
+            <ul>
+              <li>Pick a tower (buttons or keys <b>1–4</b>), then click a grass tile to build it.</li>
+              <li>Press <b>Start Wave</b> or <b>Space</b>. Kill enemies to earn gold and score.</li>
+              <li>Click a built tower to <b>Upgrade</b> (max Lv 3) or <b>Sell</b> it.</li>
+              <li>If 20 enemies reach your base, you lose. Clear Wave 15 to win.</li>
+            </ul>
+          </div>
+          <button id="overlayBtn" class="primary big">▶ &nbsp;Start Game</button>
+          <p class="tiny">Keyboard: 1–4 select tower · Space start wave · P pause · Esc cancel / deselect · M mute</p>
+        </div>
+      </div>
+    </section>
+
+    <aside class="panel">
+      <div class="stats">
+        <div class="stat"><span>💰 Gold</span><strong id="gold">200</strong></div>
+        <div class="stat"><span>❤️ Lives</span><strong id="lives">20</strong></div>
+        <div class="stat"><span>🌊 Wave</span><strong id="wave">0 / 15</strong></div>
+        <div class="stat"><span>⭐ Score</span><strong id="score">0</strong></div>
+        <div class="stat"><span>👾 Left</span><strong id="left">0</strong></div>
+        <div class="stat"><span>🏆 Kills</span><strong id="kills">0</strong></div>
+      </div>
+
+      <h2>Build a tower</h2>
+      <div id="towers" class="towers"></div>
+      <p class="hint" id="placeHint">Select a tower, then click a grass tile.</p>
+
+      <div id="selectedBox" class="selected hidden">
+        <h3 id="selTitle">Tower</h3>
+        <p id="selInfo"></p>
+        <div class="row">
+          <button id="upgradeBtn" class="primary">⬆ Upgrade</button>
+          <button id="sellBtn" class="danger">Sell</button>
+        </div>
+      </div>
+
+      <h2>Controls</h2>
+      <div class="row">
+        <button id="startWaveBtn" class="primary">▶ Start Wave (Space)</button>
+      </div>
+      <div class="row">
+        <button id="pauseBtn">⏸ Pause (P)</button>
+        <button id="speedBtn">⏩ Speed: 1×</button>
+      </div>
+      <div class="row">
+        <button id="soundBtn">🔊 Sound: On (M)</button>
+        <button id="restartBtn">↻ Restart</button>
+      </div>
+
+      <div class="legend">
+        <h3>Enemies</h3>
+        <p><span class="dot grunt"></span> <b>Crawler</b> — balanced</p>
+        <p><span class="dot runner"></span> <b>Runner</b> — fast, fragile</p>
+        <p><span class="dot tank"></span> <b>Brute</b> — slow, very tough</p>
+        <p><span class="dot boss"></span> <b>Overlord</b> — Wave 15 boss</p>
+        <h3>Tips</h3>
+        <p>❄ Frost slows everything it hits — put it before corners. Cannon splash melts groups. Snipers own long straight roads.</p>
+      </div>
+    </aside>
+  </main>
+  <footer>Starfall Defense · A complete, original, 100% offline game · Open <code>index.html</code> and play — no server, no internet, no downloads.</footer>
+</div>
+<script src="game.js"></script>
+</body>
+</html>
